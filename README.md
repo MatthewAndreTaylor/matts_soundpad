@@ -1,6 +1,6 @@
 # Matts SoundPad
 
-Matts SoundPad is a Tkinter-based desktop soundboard for quickly playing audio clips from a folder. It is designed around a SteelSeries Sonar virtual microphone output so you can trigger clips into voice chat while also optionally monitoring them on your local speakers.
+Matts SoundPad is a desktop soundboard for quickly playing audio clips from a folder. It is designed around a SteelSeries Sonar virtual microphone output so you can trigger clips into voice chat while also optionally monitoring them on your local speakers.
 
 ## Features
 
@@ -34,12 +34,6 @@ The app loads files with these extensions:
 - `.ogg`
 
 Each file must contain 2 channels. If a file is mono or otherwise not stereo, playback will fail.
-
-## Device Notes
-
-- The app searches for a device whose name contains `SteelSeries Sonar - Microphone`.
-- If that device is not found, the app shows `No output device found`.
-- When a separate speaker device is available, the app mirrors playback to it as well.
 
 ## Project Files
 
