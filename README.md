@@ -12,7 +12,7 @@ Matts SoundPad is a desktop soundboard for quickly playing audio clips from a fo
 ## Requirements
 
 - Python 3.10 or newer.
-- A working audio setup with access to a SteelSeries Sonar microphone output device. (Steel Series GG app)
+- A working audio setup with access to a SteelSeries Sonar microphone output device. ([Steel Series GG app](https://steelseries.com/gg))
 - Audio clips must be stereo. Mono files are not supported by the current loader.
 
 ## Quickstart
