@@ -12,4 +12,5 @@ __pycache__
 .venv
 site_dist
 *.db
+*.spec
 .m-soundpad/
