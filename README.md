@@ -1,41 +1,37 @@
-# Matts SoundPad
+# Matt's Soundpad
 
-Matts SoundPad is a desktop soundboard for quickly playing audio clips from a folder. It is designed around a SteelSeries Sonar virtual microphone output so you can trigger clips into voice chat while also optionally monitoring them on your local speakers.
+A desktop soundboard for playing audio clips into a SteelSeries Sonar virtual microphone, with optional monitoring on your speakers.
 
-## Features
+## Run
 
-- Play a clip by clicking its pad.
-- Click the same pad again to stop playback.
-- Stop all playback with the `STOP` button.
-- Adjust playback volume from `0%` to `200%`.
-
-## Requirements
-
-- Python 3.10 or newer.
-- A working audio setup with access to a SteelSeries Sonar microphone output device. (Steel Series GG app)
-- Audio clips must be stereo. Mono files are not supported by the current loader.
-
-## Quickstart
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then from this folder:
 
 ```bash
-pip install numpy sounddevice soundfile
+uv run m-soundpad
 ```
+
+## Build an exe
 
 ```bash
-python main.py
+uv run --group build python scripts/build_exe.py
 ```
 
-## Supported Audio
+The executable is written to `dist/m-soundpad` (`dist/m-soundpad.exe` on Windows). It uses the same folder library as `uv run m-soundpad`.
 
-The app loads files with these extensions:
+## Library
 
-- `.wav`
-- `.flac`
-- `.ogg`
+Add a folder and the app scans it recursively for `.wav`, `.flac`, and `.ogg` files, including files in subfolders. Every folder you open is remembered in the sidebar. The library file is `%APPDATA%\m-soundpad\library.json` on Windows and `~/.m-soundpad/library.json` elsewhere. The last folder opens again on the next launch. Rescan picks up files added since the last open. Removing a folder from the library does not delete anything on disk.
 
-Each file must contain 2 channels. If a file is mono or otherwise not stereo, playback will fail.
+Mono files are played as stereo. Sample rate follows the file.
 
-## Project Files
+## Controls
 
-- `main.py`: current app entry point.
-- `main-v0.py`, `main-v1.py`, `main-v2.py`: earlier versions kept in the workspace for reference.
+- Click a pad to play. Click it again to stop.
+- `Esc` stops playback. `Esc` in the search box clears the search first.
+- `Ctrl+F` focuses search. `Ctrl+O` adds a folder. `F5` rescans the current folder.
+- Volume runs from 0% to 200%.
+- Right-click a pad and choose `Set key` to bind a keyboard shortcut. The shortcut plays that clip even when the window is in the background. `Esc` cancels binding. `Clear key` removes it.
+
+Point your voice app's microphone at the SteelSeries Sonar microphone device. If Sonar is not installed, clips play through the default output instead.
+
+Startup failures are written to `error.log` in that same folder.
