@@ -1,10 +1,14 @@
 # Matt's Soundpad
 
-A desktop soundboard for playing audio clips into a SteelSeries Sonar virtual microphone, with optional monitoring on your speakers.
+A desktop soundboard for playing audio clips into a SteelSeries Sonar Virtual Audio Device, with optional monitoring on your speakers.
 
 ## Run
 
-Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then from this folder:
+- Install [uv](https://docs.astral.sh/uv/getting-started/installation/).
+- Install the [SteelSeries GG app](https://steelseries.com/gg). In each app that should hear the clips, select the SteelSeries Sonar Virtual Audio Device as the microphone input. 
+
+
+Then from this folder:
 
 ```bash
 uv run m-soundpad
